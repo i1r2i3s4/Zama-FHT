@@ -1,0 +1,26 @@
+import { ethers } from "hardhat";
+
+// 部署后把地址改成实际的
+const CONTRACT_ADDRESS = "0xYourDeployedAddress";
+
+async function main() {
+  const [signer] = await ethers.getSigners();
+  console.log("🔗 Connecting to contract at:", CONTRACT_ADDRESS);
+
+  const Auction = await ethers.getContractFactory("FHEAuction");
+  const auction = Auction.attach(CONTRACT_ADDRESS).connect(signer);
+
+  // 示例加密值（这里用假数据代替，实际需要 @zama-fhe/sdk 加密）
+  const fakeEncryptedBid = "0x1234";
+
+  console.log("📨 Submitting encrypted bid...");
+  const tx = await auction.submitBid(fakeEncryptedBid);
+  await tx.wait();
+
+  console.log("✅ Bid submitted!");
+}
+
+main().catch((error) => {
+  console.error("❌ Error:", error);
+  process.exitCode = 1;
+});
