@@ -1,0 +1,22 @@
+{
+  "name": "zama-fht-demo",
+  "version": "1.0.0",
+  "description": "Zama FHE sealed-bid auction demo for Zama Creator Program",
+  "scripts": {
+    "compile": "hardhat compile",
+    "test": "hardhat test",
+    "node": "hardhat node",
+    "deploy": "hardhat run scripts/deploy.ts --network localhost",
+    "interact": "hardhat run scripts/interact.ts --network localhost"
+  },
+  "dependencies": {
+    "@zama-fhe/contracts": "^0.1.0",
+    "@zama-fhe/sdk": "^0.1.0"
+  },
+  "devDependencies": {
+    "hardhat": "^2.22.1",
+    "@nomicfoundation/hardhat-toolbox": "^3.0.0",
+    "typescript": "^5.3.3",
+    "ts-node": "^10.9.2"
+  }
+}
